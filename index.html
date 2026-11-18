@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>time to sunset</title>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     INTRO PAGE
+══════════════════════════════ -->
+<div class="page active" id="page-intro" onclick="navigateTo('about')">
+  <img class="intro-img" src="img/intro.jpg" alt="">
+  <div class="intro-title">time to sunset</div>
+</div>
+
+<!-- ══════════════════════════════
+     ABOUT PAGE
+══════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="shell">
+    <div class="logo" onclick="navigateTo('intro')">time<br>to<br>sunset</div>
+    <nav class="nav">
+      <a onclick="navigateTo('about')" class="active">about</a>
+      <div class="sub">
+        <a onclick="navigateTo('waypoints')">waypoints</a>
+        <a onclick="navigateTo('archive')">archive</a>
+      </div>
+      <a onclick="navigateTo('contact')">contact</a>
+    </nav>
+    <div class="about-content">
+
+      <div class="about-text">
+        <h2>sohee kim</h2>
+        <p>interested in—<br>
+        <p>light, texture, and the quiet geometry of everyday architecture.</p>
+        <p>this works began in 2019 as a personal archive of moments suspended between the mundane and the luminous. Each frame is an attempt to hold still what is always moving.</p>
+
+      </div>
+    </div>
+    <div class="tagline">photographs<br>based on<br>light<br>and architecture</div>
+    <div class="year-stamp">2026</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     WAYPOINTS PAGE (나라별 목록)
+══════════════════════════════ -->
+<div class="page" id="page-waypoints">
+  <div class="shell">
+    <div class="logo" onclick="navigateTo('intro')">time<br>to<br>sunset</div>
+    <nav class="nav">
+      <a onclick="navigateTo('about')">about</a>
+      <div class="sub">
+        <a onclick="navigateTo('waypoints')" class="active">waypoints</a>
+        <a onclick="navigateTo('archive')">archive</a>
+      </div>
+      <a onclick="navigateTo('contact')">contact</a>
+    </nav>
+    <div class="gallery-area">
+      <div class="waypoint-grid" id="waypoint-grid"></div>
+    </div>
+    <div class="tagline">photographs<br>based on<br>light<br>and architecture</div>
+    <div class="year-stamp">2026</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     WAYPOINT DETAIL PAGE (선택한 나라의 사진들)
+══════════════════════════════ -->
+<div class="page" id="page-waypoint-detail">
+  <div class="shell">
+    <div class="logo" onclick="navigateTo('intro')">time<br>to<br>sunset</div>
+    <nav class="nav">
+      <a onclick="navigateTo('about')">about</a>
+      <div class="sub">
+        <a onclick="navigateTo('waypoints')" class="active">waypoints</a>
+        <a onclick="navigateTo('archive')">archive</a>
+      </div>
+      <a onclick="navigateTo('contact')">contact</a>
+    </nav>
+    <div class="detail-head" id="detail-head" onclick="navigateTo('waypoints')"></div>
+    <div class="gallery-area" id="detail-gallery">
+      <div class="masonry" id="detail-masonry"></div>
+    </div>
+    <div class="tagline">photographs<br>based on<br>light<br>and architecture</div>
+    <div class="year-stamp">2026</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     ARCHIVE PAGE
+══════════════════════════════ -->
+<div class="page" id="page-archive">
+  <div class="shell">
+    <div class="logo" onclick="navigateTo('intro')">time<br>to<br>sunset</div>
+    <nav class="nav">
+      <a onclick="navigateTo('about')">about</a>
+      <div class="sub">
+        <a onclick="navigateTo('waypoints')">waypoints</a>
+        <a onclick="navigateTo('archive')" class="active">archive</a>
+      </div>
+      <a onclick="navigateTo('contact')">contact</a>
+    </nav>
+    <div class="year-tabs" id="year-tabs"></div>
+    <div class="gallery-area">
+      <div class="masonry" id="archive-masonry"></div>
+    </div>
+    <div class="tagline">photographs<br>based on<br>light<br>and architecture</div>
+    <div class="year-stamp">2026</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     CONTACT PAGE
+══════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="shell">
+    <div class="logo" onclick="navigateTo('intro')">time<br>to<br>sunset</div>
+    <nav class="nav">
+      <a onclick="navigateTo('about')">about</a>
+      <div class="sub">
+        <a onclick="navigateTo('waypoints')">waypoints</a>
+        <a onclick="navigateTo('archive')">archive</a>
+      </div>
+      <a onclick="navigateTo('contact')" class="active">contact</a>
+    </nav>
+    <div class="contact-content">
+      <h2>contact</h2>
+      <div class="contact-item">
+        <span>email</span>
+        <a href="mailto:soy_y@email.com">soy_y@naver.com</a>
+      </div>
+      <div class="contact-item">
+        <span>instagram</span>
+        <a href="https://instagram.com/timetosunset" target="_blank">@timetosunset</a>
+      </div>
+      <div class="contact-item">
+        <span>location</span>
+        <span>Gangneung, Korea</span>
+      </div>
+    </div>
+    <div class="tagline">photographs<br>based on<br>light<br>and architecture</div>
+    <div class="year-stamp">2026</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     LIGHTBOX
+══════════════════════════════ -->
+<div id="lightbox">
+  <span class="lb-close" onclick="closeLightbox()">close</span>
+  <div class="lb-image-wrap">
+    <button class="lb-arrow prev" onclick="lbNav(-1)">←</button>
+    <div class="lb-stage"><img id="lb-img" src="" alt=""></div>
+    <button class="lb-arrow next" onclick="lbNav(1)">→</button>
+  </div>
+  <div class="lb-meta" id="lb-meta"></div>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<script>
+/* ─── DATA ─── */
+
+// WAYPOINTS — 나라(여행지)별 사진. 새 여행지는 아래 배열에 { ... } 블록을 하나 더 추가하면 돼요.
+//   year  : 카드에 작게 표시되는 연도
+//   city  : 연도 아래에 조금 더 크게 표시되는 도시/나라 이름
+//   cover : 목록 페이지의 대표(흑백→컬러) 이미지
+//   photos: 클릭했을 때 보이는 사진들 (src 비워두면 회색 자리표시 박스가 나와요)
+const waypoints = [
+  {
+    year: '2026',
+    city: 'Hangzhou&Ningbo',
+    cover: 'img/waypoints/26_hangzhoucover.jpg',
+    photos: [
+      { src:	'img/waypoints/26_hangzhou/hangzhou_1.jpg',	ratio:	'0.75',	iso: 	'3200',	aperture:	'3.4',	shutter:	'1/180',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_2.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'4.0',	shutter:	'1/750',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_3.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'4.0',	shutter:	'1/750',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_4.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'3.2',	shutter:	'1/500',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_5.jpg',	ratio:	'0.75',	iso: 	'1600',	aperture:	'3.5',	shutter:	'1/350',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_6.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'4.0',	shutter:	'1/3000',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_7.jpg',	ratio:	'0.75',	iso: 	'1600',	aperture:	'4.0',	shutter:	'1/3000',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_8.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'5.6',	shutter:	'1/1000',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_9.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'3.5',	shutter:	'1/1500',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_10.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'3.2',	shutter:	'1/750',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_11.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'3.5',	shutter:	'1/180',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_12.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'4.0',	shutter:	'1/1000',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_13.jpg',	ratio:	'0.75',	iso: 	'400',	aperture:	'3.5',	shutter:	'1/350',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_14.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/500',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_15.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'3.5',	shutter:	'1/2000',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_16.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/2000',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_17.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/1500',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_18.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_19.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_20.jpg',	ratio:	'1.33',	iso: 	'800',	aperture:	'4.0',	shutter:	'1/180',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_21.jpg',	ratio:	'0.75',	iso: 	'800',	aperture:	'8.0',	shutter:	'1/500',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_22.jpg',	ratio:	'1.33',	iso: 	'800',	aperture:	'4.0',	shutter:	'1/750',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_23.jpg',	ratio:	'0.75',	iso: 	'400',	aperture:	'5.6',	shutter:	'1/750',	location:	'Xiao Feng Art Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_24.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Hangzhou' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_25.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/750',	location:	'Hangzhou' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_26.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/1000',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_27.jpg',	ratio:	'1.33',	iso: 	'3200',	aperture:	'3.2',	shutter:	'1/180',	location:	'China Academy of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_28.jpg',	ratio:	'0.75',	iso: 	'1600',	aperture:	'3.4',	shutter:	'1/750',	location:	'Ningbo' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_29.jpg',	ratio:	'1.33',	iso: 	'64',	aperture:	'2.8',	shutter:	'1/20',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_30.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/90',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_31.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/90',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_32.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/90',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_34.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/90',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_35.jpg',	ratio:	'1.33',	iso: 	'800',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_36.jpg',	ratio:	'1.33',	iso: 	'800',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_37.jpg',	ratio:	'1.33',	iso: 	'800',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_38.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/350',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_39.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/350',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_40.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/350',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_41.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/350',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_42.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/350',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_43.jpg',	ratio:	'0.75',	iso: 	'400',	aperture:	'3.4',	shutter:	'1/250',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_44.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/125',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_45.jpg',	ratio:	'0.75',	iso: 	'400',	aperture:	'3.4',	shutter:	'1/125',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_46.jpg',	ratio:	'0.75',	iso: 	'400',	aperture:	'3.4',	shutter:	'1/125',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_47.jpg',	ratio:	'0.75',	iso: 	'400',	aperture:	'3.4',	shutter:	'1/125',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_48.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'3.5',	shutter:	'1/125',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_49.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'3.4',	shutter:	'1/125',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_50.jpg',	ratio:	'0.75',	iso: 	'400',	aperture:	'3.4',	shutter:	'1/125',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_51.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'3.5',	shutter:	'1/180',	location:	'MoAE, Huamao Museum of Art Education' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_52.jpg',	ratio:	'1.33',	iso: 	'400',	aperture:	'2.8',	shutter:	'1/180',	location:	'Ningbo' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_53.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_54.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/90',	location:	'Ningbo Museum of Art' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_55.jpg',	ratio:	'1.0',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/90',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_56.jpg',	ratio:	'1.33',	iso: 	'800',	aperture:	'4.8',	shutter:	'1/2000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_57.jpg',	ratio:	'1.33',	iso: 	'100',	aperture:	'3.5',	shutter:	'1/500',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_58.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/180',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_59.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/750',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_60.jpg',	ratio:	'0.56',	iso: 	'800',	aperture:	'5.6',	shutter:	'1/500',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_61.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/750',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_62.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/500',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_63.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/750',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_64.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_65.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_66.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_67.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/750',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_68.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_69.jpg',	ratio:	'1.33',	iso: 	'800',	aperture:	'4.8',	shutter:	'1/250',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_70.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_71.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_72.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/3000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_73.jpg',	ratio:	'1.0',	iso: 	'200',	aperture:	'3.4',	shutter:	'1/2000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_74.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/2000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_75.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'5.6',	shutter:	'1/350',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_76.jpg',	ratio:	'1.0',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_77.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_78.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.8',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_79.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'5.6',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_80.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1250',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_81.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.8',	shutter:	'1/1000',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_82.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_83.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'3.2',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_84.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_85.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_86.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/1000',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_87.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/750',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_88.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/2000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_89.jpg',	ratio:	'0.75',	iso: 	'3200',	aperture:	'4.0',	shutter:	'1/3000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_90.jpg',	ratio:	'1.33',	iso: 	'3200',	aperture:	'4.0',	shutter:	'1/2000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_91.jpg',	ratio:	'0.75',	iso: 	'3200',	aperture:	'4.8',	shutter:	'1/250',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_92.jpg',	ratio:	'0.75',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_93.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/500',	location:	'Yinzhou Park' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_94.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/350',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_95.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/1500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_96.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'3.5',	shutter:	'1/1500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_97.jpg',	ratio:	'1.33',	iso: 	'100',	aperture:	'4.0',	shutter:	'1/1000',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_98.jpg',	ratio:	'1.33',	iso: 	'100',	aperture:	'4.0',	shutter:	'1/500',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_99.jpg',	ratio:	'1.33',	iso: 	'100',	aperture:	'3.5',	shutter:	'1/350',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_100.jpg',	ratio:	'1.33',	iso: 	'100',	aperture:	'4.0',	shutter:	'1/350',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_101.jpg',	ratio:	'1.33',	iso: 	'100',	aperture:	'4.0',	shutter:	'1/350',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_102.jpg',	ratio:	'1.33',	iso: 	'1600',	aperture:	'3.5',	shutter:	'1/350',	location:	'Ningbo History Museum' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_103.jpg',	ratio:	'1.33',	iso: 	'6400',	aperture:	'4.0',	shutter:	'1/125',	location:	'Hangzhou' },
+      { src:	'img/waypoints/26_hangzhou/hangzhou_104.jpg',	ratio:	'1.33',	iso: 	'1615',	aperture:	'112.0',	shutter:	'1/124',	location:	'Hangzhou' },
+    ],
+  },
+];
+
+// ARCHIVE photos by year — add src, ratio, metadata per photo
+const archiveData = {
+  2026: [
+    { src: '', ratio: 0.7, iso: '800', shutter: '1/250', location: 'Gangneung' },
+    { src: '', ratio: 1.1, iso: '200', shutter: '1/125', location: 'Seoul' },
+  ],
+  2025: [
+    { src: '', ratio: 0.8, iso: '400', shutter: '1/320', aperture: "2.1", location: 'Busan' },
+    { src: '', ratio: 1.3, iso: '1600',shutter: '1/60',  location: 'Tokyo' },
+    { src: '', ratio: 0.65,iso: '200', shutter: '1/800', location: 'Seoul' },
+    { src: '', ratio: 1.6, iso: '400', shutter: '1/250', location: 'Jeju' },
+  ],
+  2024: [
+    { src: '', ratio: 1.2, iso: '640', shutter: '1/200', location: 'Seoul' },
+    { src: '', ratio: 0.9, iso: '400', shutter: '1/400', location: 'Gangneung' },
+    { src: '', ratio: 1.5, iso: '800', shutter: '1/100', location: 'Berlin' },
+  ],
+  2023: [
+    { src: '', ratio: 0.7, iso: '400', shutter: '1/320', location: 'Seoul' },
+    { src: '', ratio: 1.3, iso: '200', shutter: '1/500', location: 'Busan' },
+  ],
+  2022: [
+  { src:	'img/archive/2022/2022_1.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_2.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'4.0',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_3.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.0',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_4.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_5.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'4.0',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_6.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'4.5',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_7.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_8.jpg',	ratio:	'1.0',	iso: 	'80',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_9.jpg',	ratio:	'1.0',	iso: 	'320',	aperture:	'4.0',	shutter:	'1/2000',	location:	'gyeongju' },
+  { src:	'img/archive/2022/2022_10.jpg',	ratio:	'1.50',	iso: 	'2000',	aperture:	'4.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_11.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.0',	shutter:	'1/1000',	location:	'jincheon' },
+  { src:	'img/archive/2022/2022_12.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'4.0',	shutter:	'1/1000',	location:	'jincheon' },
+  { src:	'img/archive/2022/2022_13.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'3.6',	shutter:	'1/500',	location:	'jincheon' },
+  { src:	'img/archive/2022/2022_14.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.5',	shutter:	'1/4000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_17.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'4.5',	shutter:	'1/4000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_18.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.0',	shutter:	'1/2000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_19.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'5.0',	shutter:	'1/2000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_20.jpg',	ratio:	'0.67',	iso: 	'200',	aperture:	'4.5',	shutter:	'1/2000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_22.jpg',	ratio:	'1.50',	iso: 	'1000',	aperture:	'4.0',	shutter:	'1/180',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_23.jpg',	ratio:	'1.50',	iso: 	'1600',	aperture:	'3.6',	shutter:	'1/180',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_24.jpg',	ratio:	'1.50',	iso: 	'2000',	aperture:	'4.5',	shutter:	'1/180',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_25.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'7.1',	shutter:	'1/2000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_26.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/250',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_27.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'3.6',	shutter:	'1/1000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_28.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.0',	shutter:	'1/1000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_29.jpg',	ratio:	'0.67',	iso: 	'160',	aperture:	'3.6',	shutter:	'1/1000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_30.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'2.8',	shutter:	'1/4000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_31.jpg',	ratio:	'1.0',	iso: 	'250',	aperture:	'2.8',	shutter:	'1/4000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_32.jpg',	ratio:	'1.0',	iso: 	'250',	aperture:	'2.8',	shutter:	'1/2000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_33.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.5',	shutter:	'1/2000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_34.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/2000',	location:	'jeju' },
+  { src:	'img/archive/2022/2022_35.jpg',	ratio:	'1.50',	iso: 	'1600',	aperture:	'4.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_36.jpg',	ratio:	'0.67',	iso: 	'2500',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_37.jpg',	ratio:	'1.50',	iso: 	'4000',	aperture:	'6.4',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_38.jpg',	ratio:	'0.67',	iso: 	'4000',	aperture:	'6.4',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_39.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.0',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_40.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.5',	shutter:	'1/4000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_42.jpg',	ratio:	'1.0',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/4000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_43.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/4000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_44.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/4000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_45.jpg',	ratio:	'0.67',	iso: 	'500',	aperture:	'4.0',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_46.jpg',	ratio:	'0.67',	iso: 	'500',	aperture:	'4.0',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_47.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_48.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_49.jpg',	ratio:	'1.50',	iso: 	'500',	aperture:	'4.5',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_50.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_51.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'4.5',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_52.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_53.jpg',	ratio:	'1.50',	iso: 	'500',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_54.jpg',	ratio:	'1.78',	iso: 	'320',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_55.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_56.jpg',	ratio:	'1.0',	iso: 	'80',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_57.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_58.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.5',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_59.jpg',	ratio:	'1.0',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_60.jpg',	ratio:	'1.50',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_61.jpg',	ratio:	'1.50',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_62.jpg',	ratio:	'1.50',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_63.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'4.0',	shutter:	'1/4000',	location:	'gangneung' },
+  { src:	'img/archive/2022/2022_64.jpg',	ratio:	'1.50',	iso: 	'80',	aperture:	'4.5',	shutter:	'1/1000',	location:	'gunsan' },
+  { src:	'img/archive/2022/2022_65.jpg',	ratio:	'1.50',	iso: 	'80',	aperture:	'5.6',	shutter:	'1/1000',	location:	'gunsan' },
+  { src:	'img/archive/2022/2022_66.jpg',	ratio:	'1.50',	iso: 	'80',	aperture:	'5.6',	shutter:	'1/1000',	location:	'gunsan' },
+  { src:	'img/archive/2022/2022_67.jpg',	ratio:	'0.67',	iso: 	'2500',	aperture:	'4.5',	shutter:	'1/160',	location:	'gwacheon' },
+  { src:	'img/archive/2022/2022_68.jpg',	ratio:	'1.50',	iso: 	'800',	aperture:	'4.0',	shutter:	'1/5000',	location:	'gwacheon' },
+  { src:	'img/archive/2022/2022_70.jpg',	ratio:	'1.50',	iso: 	'500',	aperture:	'4.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_71.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.0',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_72.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.0',	shutter:	'1/4000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_73.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_74.jpg',	ratio:	'1.50',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_75.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'4.5',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_76.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_77.jpg',	ratio:	'1.50',	iso: 	'1600',	aperture:	'4.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_78.jpg',	ratio:	'1.50',	iso: 	'1600',	aperture:	'4.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_79.jpg',	ratio:	'1.50',	iso: 	'2500',	aperture:	'4.0',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_80.jpg',	ratio:	'0.67',	iso: 	'80',	aperture:	'22.0',	shutter:	'1/1',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_81.jpg',	ratio:	'1.50',	iso: 	'80',	aperture:	'4.4',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_82.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.8',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_83.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.5',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_84.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'3.9',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_85.jpg',	ratio:	'1.78',	iso: 	'640',	aperture:	'3.2',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_86.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'2.8',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_87.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'3.6',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_88.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'3.6',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_89.jpg',	ratio:	'1.78',	iso: 	'800',	aperture:	'3.2',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_90.jpg',	ratio:	'1.0',	iso: 	'1250',	aperture:	'4.0',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_91.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'3.2',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_92.jpg',	ratio:	'0.67',	iso: 	'640',	aperture:	'3.6',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_93.jpg',	ratio:	'1.50',	iso: 	'2000',	aperture:	'4.0',	shutter:	'1/320',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_94.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'2.8',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_95.jpg',	ratio:	'1.50',	iso: 	'2000',	aperture:	'4.0',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_96.jpg',	ratio:	'1.78',	iso: 	'25600',	aperture:	'3.6',	shutter:	'1/4000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_97.jpg',	ratio:	'1.50',	iso: 	'1000',	aperture:	'2.8',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_98.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'2.8',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_99.jpg',	ratio:	'1.50',	iso: 	'500',	aperture:	'3.2',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_100.jpg',	ratio:	'1.50',	iso: 	'500',	aperture:	'3.6',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_101.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_102.jpg',	ratio:	'1.78',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_103.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_104.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'3.6',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_105.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'3.6',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2022/2022_106.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/2000',	location:	'seoul' },
+  ],
+  2021: [
+  { src:	'img/archive/2021/2021_1.jpg',	ratio:	'0.67',	iso: 	'2500',	aperture:	'5.6',	shutter:	'1/60',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_2.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'4.5',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_4.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'4.5',	shutter:	'1/200',	location:	'gangneung' },            
+  { src:	'img/archive/2021/2021_6.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'4.5',	shutter:	'1/400',	location:	'gangneung' },               
+  { src:	'img/archive/2021/2021_8.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'4.5',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_9.jpg',	ratio:	'1.33',	iso: 	'100',	aperture:	'4.5',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_10.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'4.5',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_11.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'4.5',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_12.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'2.2',	shutter:	'1/1000',	location:	'busan' },
+  { src:	'img/archive/2021/2021_13.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'2.0',	shutter:	'1/180',	location:	'busan' },
+  { src:	'img/archive/2021/2021_14.jpg',	ratio:	'0.67',	iso: 	'160',	aperture:	'3.2',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_15.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'2.8',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_16.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_17.jpg',	ratio:	'0.67',	iso: 	'160',	aperture:	'2.8',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_18.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'7.1',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_19.jpg',	ratio:	'1.50',	iso: 	'200',	aperture:	'5.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_20.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'5.0',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_21.jpg',	ratio:	'0.56',	iso: 	'125',	aperture:	'5.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_22.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/125',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_23.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/125',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_24.jpg',	ratio:	'0.67',	iso: 	'1600',	aperture:	'5.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_25.jpg',	ratio:	'1.0',	iso: 	'2500',	aperture:	'5.6',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_26.jpg',	ratio:	'0.67',	iso: 	'1000',	aperture:	'4.5',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_27.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'5.0',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_28.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'5.0',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_29.jpg',	ratio:	'1.50',	iso: 	'1000',	aperture:	'4.0',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_30.jpg',	ratio:	'0.67',	iso: 	'1000',	aperture:	'4.0',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_31.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.0',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_32.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.5',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_33.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'4.5',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_34.jpg',	ratio:	'0.67',	iso: 	'800',	aperture:	'3.6',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_35.jpg',	ratio:	'1.50',	iso: 	'2500',	aperture:	'4.0',	shutter:	'1/400',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_36.jpg',	ratio:	'0.67',	iso: 	'2500',	aperture:	'4.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_37.jpg',	ratio:	'1.50',	iso: 	'2500',	aperture:	'4.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2021/2021_38.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'2.8',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2021/2021_39.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2021/2021_40.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'3.6',	shutter:	'1/1250',	location:	'seoul' },
+  { src:	'img/archive/2021/2021_41.jpg',	ratio:	'1.78',	iso: 	'400',	aperture:	'3.2',	shutter:	'1/2000',	location:	'seoul' },
+  { src:	'img/archive/2021/2021_42.jpg',	ratio:	'0.67',	iso: 	'200',	aperture:	'3.2',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2021/2021_43.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2021/2021_44.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'3.6',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2021/2021_45.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'5.6',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2021/2021_46.jpg',	ratio:	'0.67',	iso: 	'1250',	aperture:	'2.8',	shutter:	'1/180',	location:	'jeju' },
+  { src:	'img/archive/2021/2021_47.jpg',	ratio:	'1.50',	iso: 	'80',	aperture:	'5.0',	shutter:	'1/180',	location:	'jeju' },
+  { src:	'img/archive/2021/2021_48.jpg',	ratio:	'1.50',	iso: 	'800',	aperture:	'4.0',	shutter:	'1/180',	location:	'jeju' },
+  { src:	'img/archive/2021/2021_49.jpg',	ratio:	'0.67',	iso: 	'160',	aperture:	'4.0',	shutter:	'1/500',	location:	'jeju' },
+  { src:	'img/archive/2021/2021_50.jpg',	ratio:	'1.50',	iso: 	'80',	aperture:	'5.6',	shutter:	'1/500',	location:	'jeju' },
+  { src:	'img/archive/2021/2021_51.jpg',	ratio:	'1.50',	iso: 	'160',	aperture:	'4.0',	shutter:	'1/500',	location:	'jeju' },
+  { src:	'img/archive/2021/2021_52.jpg',	ratio:	'0.67',	iso: 	'80',	aperture:	'4.5',	shutter:	'1/500',	location:	'jeju' },
+  { src:	'img/archive/2021/2021_53.jpg',	ratio:	'1.50',	iso: 	'125',	aperture:	'4.5',	shutter:	'1/250',	location:	'jeju' },
+  { src:	'img/archive/2021/2021_54.jpg',	ratio:	'1.50',	iso: 	'2000',	aperture:	'4.0',	shutter:	'1/250',	location:	'jeju' },
+
+  ],
+  2020: [
+  { src:	'img/archive/2020/2020_1.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_2.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'4.8',	shutter:	'1/1000',	location:	'earth' },
+  { src:	'img/archive/2020/2020_3.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'5.6',	shutter:	'1/1000',	location:	'seongnam' },
+  { src:	'img/archive/2020/2020_4.jpg',	ratio:	'0.67',	iso: 	'4000',	aperture:	'5.6',	shutter:	'1/500',	location:	'seongnam' },
+  { src:	'img/archive/2020/2020_5.jpg',	ratio:	'0.67',	iso: 	'80',	aperture:	'5.6',	shutter:	'1/400',	location:	'seongnam' },
+  { src:	'img/archive/2020/2020_6.jpg',	ratio:	'1.0',	iso: 	'250',	aperture:	'5.6',	shutter:	'1/125',	location:	'seongnam' },
+  { src:	'img/archive/2020/2020_7.jpg',	ratio:	'1.50',	iso: 	'1250',	aperture:	'5.6',	shutter:	'1/250',	location:	'seongnam' },
+  { src:	'img/archive/2020/2020_8.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_9.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'5.0',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_10.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'4.8',	shutter:	'1/180',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_11.jpg',	ratio:	'0.63',	iso: 	'800',	aperture:	'4.7',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_12.jpg',	ratio:	'0.67',	iso: 	'100',	aperture:	'5.6',	shutter:	'1/180',	location:	'yangyang' },
+  { src:	'img/archive/2020/2020_13.jpg',	ratio:	'0.67',	iso: 	'100',	aperture:	'5.6',	shutter:	'1/180',	location:	'yangyang' },
+  { src:	'img/archive/2020/2020_14.jpg',	ratio:	'1.50',	iso: 	'80',	aperture:	'9.0',	shutter:	'1/180',	location:	'yangyang' },
+  { src:	'img/archive/2020/2020_15.jpg',	ratio:	'0.67',	iso: 	'80',	aperture:	'7.1',	shutter:	'1/180',	location:	'yangyang' },
+  { src:	'img/archive/2020/2020_16.jpg',	ratio:	'0.67',	iso: 	'80',	aperture:	'5.0',	shutter:	'1/180',	location:	'yangyang' },
+  { src:	'img/archive/2020/2020_17.jpg',	ratio:	'0.67',	iso: 	'125',	aperture:	'9.0',	shutter:	'1/180',	location:	'yangyang' },
+  { src:	'img/archive/2020/2020_18.jpg',	ratio:	'0.67',	iso: 	'125',	aperture:	'9.0',	shutter:	'1/180',	location:	'yangyang' },
+  { src:	'img/archive/2020/2020_19.jpg',	ratio:	'0.67',	iso: 	'160',	aperture:	'11.0',	shutter:	'1/180',	location:	'yangyang' },
+  { src:	'img/archive/2020/2020_20.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'6.4',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_21.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.5',	shutter:	'1/125',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_22.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'3.2',	shutter:	'1/1000',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_23.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_24.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_25.jpg',	ratio:	'0.67',	iso: 	'640',	aperture:	'5.0',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_26.jpg',	ratio:	'0.67',	iso: 	'640',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_27.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_28.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_29.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/60',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_30.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'4.5',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_31.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_32.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'7.1',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_33.jpg',	ratio:	'1.50',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_34.jpg',	ratio:	'1.25',	iso: 	'200',	aperture:	'5.0',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_35.jpg',	ratio:	'1.25',	iso: 	'320',	aperture:	'7.1',	shutter:	'1/180',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_36.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.0',	shutter:	'1/500',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_37.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'6.4',	shutter:	'1/250',	location:	'seoul' },
+  { src:	'img/archive/2020/2020_38.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'6.4',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_39.jpg',	ratio:	'0.67',	iso: 	'125',	aperture:	'4.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_40.jpg',	ratio:	'0.67',							location:	'gangneung' },
+  { src:	'img/archive/2020/2020_41.jpg',	ratio:	'1.49',							location:	'gangneung' },
+  { src:	'img/archive/2020/2020_42.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_43.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'4.5',	shutter:	'1/2000',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_44.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'11.0',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_45.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'14.0',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_46.jpg',	ratio:	'1.50',	iso: 	'1600',	aperture:	'22.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_47.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'8.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_48.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'8.0',	shutter:	'1/500',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_49.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'2.8',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_50.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'5.0',	shutter:	'1/1000',	location:	'yongpyeong' },
+  { src:	'img/archive/2020/2020_51.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'3.6',	shutter:	'1/500',	location:	'yongpyeong' },
+  { src:	'img/archive/2020/2020_52.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'4.0',	shutter:	'1/1000',	location:	'yongpyeong' },
+  { src:	'img/archive/2020/2020_53.jpg',	ratio:	'1.50',	iso: 	'200',	aperture:	'4.0',	shutter:	'1/1000',	location:	'yongpyeong' },
+  { src:	'img/archive/2020/2020_54.jpg',	ratio:	'1.50',	iso: 	'200',	aperture:	'5.6',	shutter:	'1/1000',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_55.jpg',	ratio:	'1.50',	iso: 	'80',	aperture:	'4.5',	shutter:	'1/250',	location:	'gangneung' },
+  { src:	'img/archive/2020/2020_56.jpg',	ratio:	'0.67',	iso: 	'125',	aperture:	'5.0',	shutter:	'1/500',	location:	'gangneung' },
+
+  ],
+  2019: [
+  { src:	'img/archive/2019/2019_1.jpg',	ratio:	'0.75',	iso: 	'16',	aperture:	'2.4',	shutter:	'1/324',	location:	'sttutgart' },
+  { src:	'img/archive/2019/2019_2.jpg',	ratio:	'1.78',	iso: 	'20',	aperture:	'2.4',	shutter:	'1/50',	location:	'amsterdam' },
+  { src:	'img/archive/2019/2019_3.jpg',	ratio:	'1.33',	iso: 	'160',	aperture:	'2.4',	shutter:	'1/13',	location:	'berlin' },
+  { src:	'img/archive/2019/2019_4.jpg',	ratio:	'1.78',	iso: 	'20',	aperture:	'1.8',	shutter:	'1/3436',	location:	'samcheok' },
+  { src:	'img/archive/2019/2019_5.jpg',	ratio:	'1.50',	iso: 	'3200',	aperture:	'13.0',	shutter:	'1/25',	location:	'london' },
+  { src:	'img/archive/2019/2019_6.jpg',	ratio:	'1.38',	iso: 	'3200',					location:	'london' },
+  { src:	'img/archive/2019/2019_7.jpg',	ratio:	'0.67',	iso: 	'3200',	aperture:	'13.0',	shutter:	'1/2500',	location:	'london' },
+  { src:	'img/archive/2019/2019_8.jpg',	ratio:	'1.50',	iso: 	'3200',	aperture:	'5.3',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_9.jpg',	ratio:	'1.50',	iso: 	'3200',	aperture:	'6.4',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_10.jpg',	ratio:	'1.50',	iso: 	'3200',	aperture:	'6.4',	shutter:	'1/640',	location:	'london' },
+  { src:	'img/archive/2019/2019_11.jpg',	ratio:	'1.33',	iso: 	'3200',	aperture:	'5.6',	shutter:	'1/110',	location:	'london' },
+  { src:	'img/archive/2019/2019_12.jpg',	ratio:	'0.67',	iso: 	'3200',	aperture:	'5.6',	shutter:	'1/40',	location:	'london' },
+  { src:	'img/archive/2019/2019_13.jpg',	ratio:	'0.67',	iso: 	'3200',	aperture:	'7.1',	shutter:	'1/50',	location:	'london' },
+  { src:	'img/archive/2019/2019_14.jpg',	ratio:	'1.78',	iso: 	'3200',	aperture:	'5.0',	shutter:	'1/550',	location:	'london' },
+  { src:	'img/archive/2019/2019_15.jpg',	ratio:	'0.67',	iso: 	'3200',	aperture:	'5.6',	shutter:	'1/75',	location:	'london' },
+  { src:	'img/archive/2019/2019_16.jpg',	ratio:	'1.33',	iso: 	'25',	aperture:	'2.4',	shutter:	'1/50',	location:	'rotterdam' },
+  { src:	'img/archive/2019/2019_17.jpg',	ratio:	'1.33',	iso: 	'16',	aperture:	'2.4',	shutter:	'1/800',	location:	'london' },
+  { src:	'img/archive/2019/2019_18.jpg',	ratio:	'0.67',	iso: 	'2000',	aperture:	'9.0',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_19.jpg',	ratio:	'1.33',	iso: 	'16',	aperture:	'2.4',	shutter:	'1/640',	location:	'london' },
+  { src:	'img/archive/2019/2019_20.jpg',	ratio:	'0.67',	iso: 	'2000',	aperture:	'9.0',	shutter:	'1/900',	location:	'london' },
+  { src:	'img/archive/2019/2019_21.jpg',	ratio:	'1.50',	iso: 	'2000',	aperture:	'5.0',	shutter:	'1/2900',	location:	'london' },
+  { src:	'img/archive/2019/2019_22.jpg',	ratio:	'0.67',	iso: 	'2000',	aperture:	'5.0',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_23.jpg',	ratio:	'1.50',	iso: 	'2000',	aperture:	'11.0',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_24.jpg',	ratio:	'0.67',	iso: 	'2500',	aperture:	'5.6',	shutter:	'1/180',	location:	'london' },
+  { src:	'img/archive/2019/2019_25.jpg',	ratio:	'0.67',	iso: 	'2500',	aperture:	'22.0',	shutter:	'1/1800',	location:	'london' },
+  { src:	'img/archive/2019/2019_26.jpg',	ratio:	'0.67',	iso: 	'2500',	aperture:	'5.6',	shutter:	'1/140',	location:	'london' },
+  { src:	'img/archive/2019/2019_27.jpg',	ratio:	'0.67',	iso: 	'500',	aperture:	'5.6',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_28.jpg',	ratio:	'1.0',	iso: 	'500',	aperture:	'5.6',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_29.jpg',	ratio:	'1.50',	iso: 	'800',	aperture:	'5.6',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_30.jpg',	ratio:	'0.67',	iso: 	'200',	aperture:	'5.6',	shutter:	'1/30',	location:	'london' },
+  { src:	'img/archive/2019/2019_31.jpg',	ratio:	'1.50',	iso: 	'800',	aperture:	'5.6',	shutter:	'1/2400',	location:	'london' },
+  { src:	'img/archive/2019/2019_32.jpg',	ratio:	'0.67',	iso: 	'1000',	aperture:	'5.0',	shutter:	'1/4000',	location:	'london' },
+  { src:	'img/archive/2019/2019_33.jpg',	ratio:	'1.33',	iso: 	'16',	aperture:	'2.4',	shutter:	'1/150',	location:	'london' },
+  { src:	'img/archive/2019/2019_34.jpg',	ratio:	'1.33',	iso: 	'20',	aperture:	'2.4',	shutter:	'1/120',	location:	'london' },
+  { src:	'img/archive/2019/2019_35.jpg',	ratio:	'0.67',	iso: 	'1000',	aperture:	'5.6',	shutter:	'1/420',	location:	'london' },
+  { src:	'img/archive/2019/2019_36.jpg',	ratio:	'0.67',	iso: 	'1000',	aperture:	'5.0',	shutter:	'1/1200',	location:	'london' },
+  { src:	'img/archive/2019/2019_37.jpg',	ratio:	'1.33',	iso: 	'25',	aperture:	'2.4',	shutter:	'1/60',	location:	'jangseon' },
+  { src:	'img/archive/2019/2019_38.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'7.1',	shutter:	'1/320',	location:	'boseong' },
+  { src:	'img/archive/2019/2019_39.jpg',	ratio:	'1.33',							location:	'jangseon' },
+  { src:	'img/archive/2019/2019_40.jpg',	ratio:	'1.33',							location:	'jangseon' },
+  { src:	'img/archive/2019/2019_41.jpg',	ratio:	'1.50',	iso: 	'1250',	aperture:	'6.4',	shutter:	'1/3500',	location:	'seoul' },
+  { src:	'img/archive/2019/2019_42.jpg',	ratio:	'1.01',	iso: 	'1600',					location:	'seoul' },
+  { src:	'img/archive/2019/2019_43.jpg',	ratio:	'0.67',	iso: 	'1600',	aperture:	'5.6',	shutter:	'1/80',	location:	'seoul' },
+  { src:	'img/archive/2019/2019_44.jpg',	ratio:	'0.67',	iso: 	'1600',	aperture:	'5.6',	shutter:	'1/600',	location:	'seoul' },
+  { src:	'img/archive/2019/2019_45.jpg',	ratio:	'1.50',	iso: 	'1600',	aperture:	'5.6',	shutter:	'1/18',	location:	'seoul' },
+  { src:	'img/archive/2019/2019_46.jpg',	ratio:	'1.78',	iso: 	'320',	aperture:	'5.0',	shutter:	'1/4000',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_47.jpg',	ratio:	'0.67',	iso: 	'200',	aperture:	'5.6',	shutter:	'1/1500',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_48.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/1400',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_49.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/800',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_50.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/1900',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_51.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/4000',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_52.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/1000',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_53.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/600',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_54.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/160',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_55.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/1000',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_56.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/3800',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_57.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/2500',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_58.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/3800',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_59.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/3200',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_60.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/2200',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_61.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'5.6',	shutter:	'1/950',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_62.jpg',	ratio:	'1.78',	iso: 	'500',	aperture:	'5.6',	shutter:	'1/400',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_63.jpg',	ratio:	'1.50',	iso: 	'500',	aperture:	'5.6',	shutter:	'1/4000',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_64.jpg',	ratio:	'1.50',	iso: 	'500',	aperture:	'5.6',	shutter:	'1/4000',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_65.jpg',	ratio:	'1.50',	iso: 	'500',	aperture:	'5.6',	shutter:	'1/320',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_66.jpg',	ratio:	'1.24',	iso: 	'400',					location:	'jeju' },
+  { src:	'img/archive/2019/2019_67.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'6.3',	shutter:	'1/800',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_68.jpg',	ratio:	'0.67',	iso: 	'400',	aperture:	'4.0',	shutter:	'1/1000',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_69.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'4.0',	shutter:	'1/1600',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_70.jpg',	ratio:	'1.50',	iso: 	'100',	aperture:	'6.3',	shutter:	'1/2000',	location:	'jeju' },
+  { src:	'img/archive/2019/2019_71.jpg',	ratio:	'0.67',	iso: 	'250',	aperture:	'8.0',	shutter:	'1/80',	location:	'gangneung' },
+  { src:	'img/archive/2019/2019_72.jpg',	ratio:	'1.50',	iso: 	'250',	aperture:	'6.4',	shutter:	'1/800',	location:	'gangneung' },
+  { src:	'img/archive/2019/2019_73.jpg',	ratio:	'1.33',	iso: 	'250',	aperture:	'6.4',	shutter:	'1/1200',	location:	'gangneung' },
+  { src:	'img/archive/2019/2019_74.jpg',	ratio:	'1.33',	iso: 	'200',	aperture:	'6.4',	shutter:	'1/1900',	location:	'gangneung' },
+  { src:	'img/archive/2019/2019_75.jpg',	ratio:	'0.67',	iso: 	'500',	aperture:	'6.4',	shutter:	'1/750',	location:	'singapore' },
+  { src:	'img/archive/2019/2019_76.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'7.1',	shutter:	'1/340',	location:	'singapore' },
+  { src:	'img/archive/2019/2019_77.jpg',	ratio:	'0.67',	iso: 	'640',	aperture:	'5.6',	shutter:	'1/4000',	location:	'singapore' },
+  { src:	'img/archive/2019/2019_78.jpg',	ratio:	'1.50',	iso: 	'800',	aperture:	'22.0',	shutter:	'1/250',	location:	'singapore' },
+  { src:	'img/archive/2019/2019_79.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'7.1',	shutter:	'1/125',	location:	'singapore' },
+  { src:	'img/archive/2019/2019_80.jpg',	ratio:	'1.50',	iso: 	'640',	aperture:	'5.0',	shutter:	'1/4000',	location:	'singapore' },
+  { src:	'img/archive/2019/2019_81.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'10.0',	shutter:	'1/3000',	location:	'kenting' },
+  { src:	'img/archive/2019/2019_82.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'10.0',	shutter:	'1/100',	location:	'kenting' },
+  { src:	'img/archive/2019/2019_83.jpg',	ratio:	'1.0',	iso: 	'320',	aperture:	'7.1',	shutter:	'1/2000',	location:	'kenting' },
+  { src:	'img/archive/2019/2019_84.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'9.0',	shutter:	'1/2700',	location:	'kenting' },
+  { src:	'img/archive/2019/2019_85.jpg',	ratio:	'0.67',	iso: 	'320',	aperture:	'22.0',	shutter:	'1/640',	location:	'kenting' },
+  { src:	'img/archive/2019/2019_86.jpg',	ratio:	'1.50',	iso: 	'320',	aperture:	'5.6',	shutter:	'1/1800',	location:	'kenting' },
+  { src:	'img/archive/2019/2019_87.jpg',	ratio:	'0.67',	iso: 	'400',					location:	'kenting' },
+  { src:	'img/archive/2019/2019_88.jpg',	ratio:	'1.50',	iso: 	'400',	aperture:	'6.4',	shutter:	'1/1500',	location:	'kenting' },
+  { src:	'img/archive/2019/2019_89.jpg',	ratio:	'1.50',	iso: 	'1600',	aperture:	'11.0',	shutter:	'1/2900',	location:	'kenting' },
+  { src:	'img/archive/2019/2019_90.jpg',	ratio:	'0.66',							location:	'kenting' },
+  { src:	'img/archive/2019/2019_91.jpg',	ratio:	'0.66',							location:	'kenting' },
+  { src:	'img/archive/2019/2019_92.jpg',	ratio:	'0.66',							location:	'kaohsiung' },
+  { src:	'img/archive/2019/2019_93.jpg',	ratio:	'0.66',							location:	'kaohsiung' },
+  { src:	'img/archive/2019/2019_94.jpg',	ratio:	'0.66',							location:	'kaohsiung' },
+
+  ],
+};
+
+// greyscale placeholder colors for demo
+const greys = ['#c8c8c6','#d0d0ce','#c4c4c2','#ccccca','#d4d4d2','#c6c6c4','#d8d8d6','#cacacb'];
+
+/* ─── LIGHTBOX STATE ─── */
+let lbPhotos = [];
+let lbIndex  = 0;
+
+function openLightbox(photos, index) {
+  lbPhotos = photos;
+  lbIndex  = index;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  resetZoom();
+}
+function lbNav(dir) {
+  lbIndex = (lbIndex + dir + lbPhotos.length) % lbPhotos.length;
+  renderLightbox();
+}
+function renderLightbox() {
+  const p = lbPhotos[lbIndex];
+  const img = document.getElementById('lb-img');
+  if (p.src) {
+    img.src = p.src;
+    img.style.background = '';
+  } else {
+    img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+    const w = Math.round(300 / p.ratio * p.ratio);
+    const h = Math.round(300 * p.ratio);
+    img.style.cssText = `width:${Math.min(600, 600)}px;height:${Math.round(600*p.ratio)}px;background:${greys[lbIndex%greys.length]};max-height:72vh;`;
+  }
+  const meta = [];
+  if (p.iso)      meta.push(`<span>iso <strong>${p.iso}</strong></span>`);
+  if (p.shutter)  meta.push(`<span>ss <strong>${p.shutter}</strong></span>`);
+  if (p.aperture) meta.push(`<span>ƒ <strong>${p.aperture}</strong></span>`);
+  if (p.location) meta.push(`<span>location <strong>${p.location}</strong></span>`);
+  if (p.year)     meta.push(`<span>year <strong>${p.year}</strong></span>`);
+  document.getElementById('lb-meta').innerHTML = meta.join('');
+  document.getElementById('lb-counter').textContent = `${lbIndex+1} / ${lbPhotos.length}`;
+  resetZoom();   // 다른 사진으로 넘어가면 확대 상태 초기화
+}
+
+/* ─── LIGHTBOX ZOOM (휠로 확대/축소, 드래그로 이동, 더블클릭으로 토글) ─── */
+const lbImg = document.getElementById('lb-img');
+const ZOOM_MIN = 1, ZOOM_MAX = 5;
+let zoom = { s: 1, x: 0, y: 0 };
+let dragging = false, dragOrigin = null;
+
+// 사진의 "원래 자리" 중심 (확대/이동과 무관하게 stage 기준)
+function imgCenter() {
+  const r = document.querySelector('#lightbox .lb-stage').getBoundingClientRect();
+  return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+}
+// 확대된 사진이 화면(뷰포트) 밖으로 빈 공간을 드러내지 않게 이동 범위 제한
+function clampAxis(t, c0, size, vsize) {
+  let lo, hi;
+  if (size >= vsize) {                       // 화면보다 커졌을 때: 사진 가장자리가 화면 가장자리를 넘지 않게
+    lo = vsize - c0 - size / 2;
+    hi = size / 2 - c0;
+  } else {                                   // 아직 화면보다 작을 때: 원래 자리 ↔ 화면 중앙 사이
+    const m = vsize / 2 - c0;
+    lo = Math.min(0, m); hi = Math.max(0, m);
+  }
+  return Math.max(lo, Math.min(hi, t));
+}
+function clampPan() {
+  const c = imgCenter();
+  zoom.x = clampAxis(zoom.x, c.x, lbImg.offsetWidth  * zoom.s, window.innerWidth);
+  zoom.y = clampAxis(zoom.y, c.y, lbImg.offsetHeight * zoom.s, window.innerHeight);
+}
+function applyZoom(animate) {
+  clampPan();
+  lbImg.style.transition = animate ? 'transform .15s ease-out' : 'none';
+  lbImg.style.transform  = `translate(${zoom.x}px, ${zoom.y}px) scale(${zoom.s})`;
+  lbImg.classList.toggle('zoomed', zoom.s > 1);
+  document.getElementById('lightbox').classList.toggle('zoomed', zoom.s > 1);
+}
+function resetZoom() {
+  zoom = { s: 1, x: 0, y: 0 };
+  applyZoom(false);
+}
+// 마우스 위치(cx, cy)를 기준으로 확대/축소
+function zoomAt(cx, cy, newScale, animate = true) {
+  newScale = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, newScale));
+  const c  = imgCenter();
+  const px = cx - c.x, py = cy - c.y;
+  const k  = newScale / zoom.s;
+  zoom.x = px - (px - zoom.x) * k;
+  zoom.y = py - (py - zoom.y) * k;
+  zoom.s = newScale;
+  applyZoom(animate);
+}
+
+document.getElementById('lightbox').addEventListener('wheel', e => {
+  e.preventDefault();
+  zoomAt(e.clientX, e.clientY, zoom.s * Math.exp(-e.deltaY * 0.0015));
+}, { passive: false });
+
+lbImg.addEventListener('dblclick', e => {
+  if (zoom.s > 1) { zoom = { s: 1, x: 0, y: 0 }; applyZoom(true); }
+  else zoomAt(e.clientX, e.clientY, 2.5);
+});
+lbImg.addEventListener('dragstart', e => e.preventDefault());
+lbImg.addEventListener('mousedown', e => {
+  if (zoom.s <= 1) return;
+  dragging = true;
+  dragOrigin = { mx: e.clientX, my: e.clientY, x: zoom.x, y: zoom.y };
+  lbImg.classList.add('dragging');
+});
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  zoom.x = dragOrigin.x + (e.clientX - dragOrigin.mx);
+  zoom.y = dragOrigin.y + (e.clientY - dragOrigin.my);
+  applyZoom(false);
+});
+window.addEventListener('mouseup', () => {
+  dragging = false;
+  lbImg.classList.remove('dragging');
+});
+
+// keyboard nav
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft')  lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'Escape')     closeLightbox();
+});
+
+/* ─── BUILD MASONRY ─── */
+function buildMasonry(containerId, photos) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  photos.forEach((p, i) => {
+    const item = document.createElement('div');
+    item.className = 'masonry-item';
+    item.onclick = () => openLightbox(photos, i);
+    if (p.src) {
+      const img = document.createElement('img');
+      img.src = p.src;
+      img.alt = p.location || '';
+      item.appendChild(img);
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'img-placeholder';
+      ph.style.cssText = `padding-top:${p.ratio*100}%;background:${greys[i%greys.length]};`;
+      item.appendChild(ph);
+    }
+    el.appendChild(item);
+  });
+}
+
+/* ─── ARCHIVE YEAR TABS ─── */
+const years = Object.keys(archiveData).map(Number).sort((a,b)=>a-b);   // 19 20 21 ... 26
+let activeYear = years[years.length - 1];                               // 처음엔 가장 최근 연도
+
+function buildYearTabs() {
+  const tabs = document.getElementById('year-tabs');
+  tabs.innerHTML = '';
+  years.forEach(y => {
+    const btn = document.createElement('button');
+    btn.textContent = String(y).slice(2); // "26" format
+    btn.dataset.year = y;
+    if (y === activeYear) btn.classList.add('active');
+    btn.onclick = () => {
+      activeYear = y;
+      document.querySelectorAll('.year-tabs button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      buildMasonry('archive-masonry', archiveData[y]);
+    };
+    tabs.appendChild(btn);
+  });
+}
+
+/* ─── WAYPOINTS ─── */
+function buildWaypoints() {
+  const grid = document.getElementById('waypoint-grid');
+  grid.innerHTML = '';
+  waypoints.forEach((w, i) => {
+    const card = document.createElement('div');
+    card.className = 'waypoint-card';
+    card.onclick = () => openWaypoint(i);
+
+    if (w.cover) {
+      const img = document.createElement('img');
+      img.src = w.cover;
+      img.alt = w.city;
+      img.onerror = () => img.remove();   // 이미지가 아직 없으면 회색 박스로 보여요
+      card.appendChild(img);
+    }
+
+    const label = document.createElement('div');
+    label.className = 'waypoint-label';
+    const yr = document.createElement('span');
+    yr.className = 'wp-year';
+    yr.textContent = w.year;
+    const city = document.createElement('span');
+    city.className = 'wp-city';
+    city.textContent = w.city;
+    label.append(yr, city);
+    card.appendChild(label);
+
+    grid.appendChild(card);
+  });
+}
+
+function openWaypoint(i) {
+  const w = waypoints[i];
+  document.getElementById('detail-head').textContent = `← ${w.year} ${w.city}`;
+  buildMasonry('detail-masonry', w.photos);
+  document.getElementById('detail-gallery').scrollTop = 0;
+  navigateTo('waypoint-detail');
+}
+
+/* ─── NAVIGATION ─── */
+let currentPage = 'intro';
+
+function navigateTo(id) {
+  document.getElementById('page-'+currentPage).classList.remove('active');
+  currentPage = id;
+  const next = document.getElementById('page-'+id);
+  next.classList.add('active');
+
+  // 메뉴 하이라이트 (국가 상세 페이지에서는 waypoints 메뉴가 켜져 있도록)
+  const navKey = (id === 'waypoint-detail') ? 'waypoints' : id;
+  document.querySelectorAll('.nav a').forEach(a => {
+    a.classList.remove('active');
+    if (a.textContent.trim() === navKey) a.classList.add('active');
+  });
+
+  // lazy init galleries
+  if (id === 'waypoints') buildWaypoints();
+  if (id === 'archive')   { buildYearTabs(); buildMasonry('archive-masonry', archiveData[activeYear]); }
+}
+
+/* ─── INIT ─── */
+buildYearTabs();
+
+// 페이지 로드 시 intro를 명확하게 active로 설정
+document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+document.getElementById('page-intro').classList.add('active');
+currentPage = 'intro';
+
+// 인트로 이미지 마우스 스크롤 parallax
+let introScrollY = 0;
+const introImg = document.querySelector('#page-intro .intro-img');
+
+document.getElementById('page-intro').addEventListener('wheel', (e) => {
+  e.preventDefault();
+  introScrollY -= e.deltaY * 0.3;
+  // 범위 제한 (너무 많이 안 벗어나도록)
+  introScrollY = Math.max(-120, Math.min(120, introScrollY));
+  introImg.style.transform = `translateY(${introScrollY}px)`;
+}, { passive: false });
+</script>
+</body>
+</html>
