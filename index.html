@@ -880,8 +880,13 @@ function buildMasonry(containerId, photos) {
 }
 
 /* ─── ARCHIVE YEAR TABS ─── */
-const years = Object.keys(archiveData).map(Number).sort((a,b)=>a-b);   // 19 20 21 22
-let activeYear = years[years.length - 1];                               // 처음엔 가장 최근 연도
+// 사진(src)이 하나라도 있는 연도만 탭에 보이고, 사진 없는 칸은 목록에서 빼요
+const hasImg  = p => p && p.src;
+const photosOf = y => (archiveData[y] || []).filter(hasImg);
+const years = Object.keys(archiveData).map(Number)
+  .filter(y => photosOf(y).length > 0)
+  .sort((a, b) => a - b);                      // 19 20 21 ...
+let activeYear = years[years.length - 1];       // 처음엔 가장 최근 연도
 
 function buildYearTabs() {
   const tabs = document.getElementById('year-tabs');
@@ -895,7 +900,7 @@ function buildYearTabs() {
       activeYear = y;
       document.querySelectorAll('.year-tabs button').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-      buildMasonry('archive-masonry', archiveData[y]);
+      buildMasonry('archive-masonry', photosOf(y));
     };
     tabs.appendChild(btn);
   });
@@ -905,7 +910,10 @@ function buildYearTabs() {
 function buildWaypoints() {
   const grid = document.getElementById('waypoint-grid');
   grid.innerHTML = '';
-  waypoints.forEach((w, i) => {
+  // 최신 연도부터 보여주기 (같은 연도는 위에 적은 순서대로)
+  [...waypoints].map((w, i) => ({ w, i }))
+    .sort((a, b) => (Number(b.w.year) - Number(a.w.year)) || (a.i - b.i))
+    .forEach(({ w, i }) => {
     const card = document.createElement('div');
     card.className = 'waypoint-card';
     card.onclick = () => openWaypoint(i);
@@ -959,7 +967,7 @@ function navigateTo(id) {
 
   // lazy init galleries
   if (id === 'waypoints') buildWaypoints();
-  if (id === 'archive')   { buildYearTabs(); buildMasonry('archive-masonry', archiveData[activeYear]); }
+  if (id === 'archive')   { buildYearTabs(); buildMasonry('archive-masonry', photosOf(activeYear)); }
 }
 
 /* ─── INIT ─── */

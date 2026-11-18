@@ -361,7 +361,6 @@ html, body {
 }
 
 /* WAYPOINTS — 나라별 목록 */
-
 .waypoint-grid {
   column-count: 4;
   column-gap: 10px;
@@ -372,7 +371,7 @@ html, body {
   position: relative;
   break-inside: avoid;
   margin-bottom: 10px;
-  min-height: 120px;
+  min-height: 120px;          /* 커버 이미지가 아직 없을 때만 보이는 최소 높이 */
   overflow: hidden;
   cursor: pointer;
   background: #cfcfcd;
@@ -380,11 +379,10 @@ html, body {
 .waypoint-card img {
   display: block;
   width: 100%;
-  height: auto;
+  height: auto;               /* 원본 비율 그대로 */
   filter: grayscale(100%);
   transition: filter .5s ease, transform .6s ease;
 }
-
 .waypoint-card:hover img {
   filter: grayscale(0%);
   transform: scale(1.03);
