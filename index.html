@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>time to sunset</title>
@@ -208,7 +209,7 @@ const waypoints = [
     { src:	'img/waypoints/19_GermanyNetherland/GENE_25.jpg',	ratio:	'1.33',	iso: 	'16',	aperture:	'2.4',	shutter:	'1/125',	location:	'Berlin' },
     { src:	'img/waypoints/19_GermanyNetherland/GENE_26.jpg',	ratio:	'1.33',	iso: 	'16',	aperture:	'2.4',	shutter:	'1/270',	location:	'Berlin' },
     { src:	'img/waypoints/19_GermanyNetherland/GENE_27.jpg',	ratio:	'1.78',	iso: 	'50',	aperture:	'1.8',	shutter:	'1/15',	location:	'Stuttgart' },
-    { src:	'img/waypoints/19_GermanyNetherland/GENE_28.jpg',	ratio:	'1.0',	location:	'Stuttgart' },
+    { src:	'img/waypoints/19_GermanyNetherland/GENE_28.jpg',	ratio:	'1.0', location:	'Stuttgart' },
     { src:	'img/waypoints/19_GermanyNetherland/GENE_29.jpg',	ratio:	'1.78',	iso: 	'100',	aperture:	'2.4',	shutter:	'1/30',	location:	'Stuttgart' },
     { src:	'img/waypoints/19_GermanyNetherland/GENE_30.jpg',	ratio:	'0.75',	iso: 	'100',	aperture:	'1.8',	shutter:	'1/17',	location:	'Stuttgart' },
     { src:	'img/waypoints/19_GermanyNetherland/GENE_31.jpg',	ratio:	'1.78',	iso: 	'16',	aperture:	'2.4',	shutter:	'1/120',	location:	'Stuttgart' },
@@ -220,7 +221,7 @@ const waypoints = [
     { src:	'img/waypoints/19_GermanyNetherland/GENE_37.jpg',	ratio:	'0.75',	iso: 	'20',	aperture:	'1.8',	shutter:	'1/800',	location:	'Berlin' },
     { src:	'img/waypoints/19_GermanyNetherland/GENE_38.jpg',	ratio:	'0.75',	iso: 	'25',	aperture:	'2.4',	shutter:	'1/50',	location:	'Amsterdam' },
     { src:	'img/waypoints/19_GermanyNetherland/GENE_39.jpg',	ratio:	'1.78',	iso: 	'20',	aperture:	'2.4',	shutter:	'1/50',	location:	'Amsterdam' },
-    { src:	'img/waypoints/19_GermanyNetherland/GENE_40.jpg',	ratio:	'1.33',	iso: 	'100',	aperture:	'2.4',	shutter:	'1/30',	location:	'Amsterdam' },
+    { src:	'img/waypoints/19_GermanyNetherland/GENE_40.jpg',	ratio:	'1.33',	iso: 	'100', aperture:	'2.4',	shutter:	'1/30',	location:	'Amsterdam' },
     { src:	'img/waypoints/19_GermanyNetherland/GENE_41.jpg',	ratio:	'1.33',	iso: 	'16',	aperture:	'2.4',	shutter:	'1/120',	location:	'Amsterdam' },
      ],
   },
@@ -1003,5 +1004,6 @@ document.getElementById('page-intro').addEventListener('wheel', (e) => {
   introImg.style.transform = `translateY(${introScrollY}px)`;
 }, { passive: false });
 </script>
+<script src="mobile.js"></script>
 </body>
 </html>

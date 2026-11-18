@@ -1,0 +1,137 @@
+/* =====================================================
+   MOBILE / TOUCH  —  style.css 뒤에 불러오는 추가 규칙
+   (PC 화면은 전혀 바뀌지 않아요)
+===================================================== */
+
+/* ─── 1) 터치 기기: 마우스 hover 효과 대체 ─── */
+@media (hover: none) {
+  .nav a:hover,
+  .detail-head:hover { filter: none; }
+
+  /* 갤러리 사진: 항상 흑백 유지 (탭하면 팝업으로 열려요) */
+  .masonry-item:hover img { transform: none; filter: grayscale(100%); }
+
+  /* waypoints 카드: 연도/도시 이름을 항상 보여주고, 누르는 순간 컬러로 */
+  .waypoint-card:hover img  { transform: none; filter: grayscale(100%); }
+  .waypoint-card:active img { filter: grayscale(0%); }
+  .waypoint-label { opacity: 1; }
+
+  /* 인트로 글씨: 처음엔 흐리다가 저절로 선명해져요 */
+  #page-intro .intro-title {
+    filter: blur(3px);
+    animation: introClear 2.4s ease 0.8s forwards;
+  }
+  @keyframes introClear { to { filter: blur(0); } }
+
+  #lightbox .lb-stage img { cursor: default; }
+}
+
+/* ─── 2) 좁은 화면(휴대폰) 레이아웃 ─── */
+@media (max-width: 900px) {
+
+  /* 상단 바: 로고(왼쪽) + 가로 메뉴(오른쪽) */
+  .logo { top: 18px; left: 16px; }
+  .nav {
+    top: 18px; left: 92px; right: 12px;
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 14px;
+  }
+  .nav .sub { display: contents; }       /* waypoints/archive를 같은 줄로 */
+  .nav a { font-size: 13px; }
+
+  /* 스크롤되는 사진이 상단 메뉴 밑으로 지나가도 글자가 안 겹치게 배경 깔기 */
+  .shell::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 84px;
+    background: var(--bg);
+    z-index: 9;
+  }
+  #page-archive .shell::before,
+  #page-waypoint-detail .shell::before { height: 116px; }
+
+  /* 연도 탭 / 나라 제목: 메뉴 바로 아래 줄 */
+  .year-tabs { top: 88px; left: 16px; gap: 16px; }
+  .year-tabs button { font-size: 13px; padding: 4px 0; }
+  .detail-head {
+    top: 88px; left: 16px; right: 16px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* 본문(갤러리): 화면 전체 너비 사용 */
+  .gallery-area {
+    left: 0;
+    padding: 96px 12px 28px 12px;
+    overscroll-behavior: contain;
+  }
+  #page-archive .gallery-area,
+  #page-waypoint-detail .gallery-area { padding-top: 128px; }
+  .masonry { column-gap: 6px; }
+  .masonry-item { margin-bottom: 6px; }
+  .waypoint-grid { grid-template-columns: 1fr; gap: 8px; }
+
+  /* 하단 문구/연도: 갤러리 페이지에서는 사진을 가리므로 숨김 */
+  #page-waypoints .tagline, #page-waypoints .year-stamp,
+  #page-waypoint-detail .tagline, #page-waypoint-detail .year-stamp,
+  #page-archive .tagline, #page-archive .year-stamp { display: none; }
+  .tagline    { left: 16px;  bottom: 20px; }
+  .year-stamp { right: 16px; bottom: 20px; }
+
+  /* 인트로 */
+  #page-intro .intro-img { object-position: 62% center; }
+  #page-intro .intro-title {
+    right: auto; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* about */
+  #page-about .about-content {
+    top: 104px; bottom: 120px; left: 20px; right: 20px;
+    transform: none;
+    width: auto; max-width: none;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+  }
+  #page-about .about-photo,
+  #page-about .about-photo-placeholder { width: 100%; min-width: 0; max-width: 260px; }
+  #page-about .about-text h2 { font-size: 14px; }
+  #page-about .about-text p  { font-size: 13px; line-height: 1.8; }
+
+  /* contact */
+  #page-contact .contact-content { left: 20px; right: 20px; transform: translateY(-50%); }
+  #page-contact .contact-content h2 { font-size: 14px; }
+  #page-contact .contact-item { font-size: 13px; flex-wrap: wrap; gap: 4px 16px; }
+
+  /* 사진 팝업 */
+  #lightbox { touch-action: none; }
+  #lightbox .lb-image-wrap { max-width: 94vw; max-height: 70vh; }
+  #lightbox .lb-image-wrap img { max-width: 94vw; max-height: 70vh; touch-action: none; }
+  #lightbox .lb-meta {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 14px;
+    max-width: 90vw;
+    text-align: center;
+  }
+  #lightbox .lb-close { top: 10px; right: 8px; padding: 10px 12px; font-size: 13px; }
+  #lightbox .lb-counter { bottom: 18px; }
+  .lb-arrow { font-size: 20px; padding: 24px 10px; }
+  .lb-arrow.prev { left: 2px; }
+  .lb-arrow.next { right: 2px; }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 380px) {
+  .nav { left: 84px; gap: 6px 10px; }
+  .nav a { font-size: 12px; }
+}
