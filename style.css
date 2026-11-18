@@ -361,6 +361,7 @@ html, body {
 }
 
 /* WAYPOINTS — 나라별 목록 */
+
 .waypoint-grid {
   column-count: 4;
   column-gap: 10px;
@@ -383,6 +384,7 @@ html, body {
   filter: grayscale(100%);
   transition: filter .5s ease, transform .6s ease;
 }
+
 .waypoint-card:hover img {
   filter: grayscale(0%);
   transform: scale(1.03);
