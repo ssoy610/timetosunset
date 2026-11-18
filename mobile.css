@@ -75,7 +75,8 @@
   #page-waypoint-detail .gallery-area { padding-top: 128px; }
   .masonry { column-gap: 6px; }
   .masonry-item { margin-bottom: 6px; }
-  .waypoint-grid { grid-template-columns: 1fr; gap: 8px; }
+  .waypoint-grid { column-count: 1; column-gap: 8px; }
+  .waypoint-card { margin-bottom: 8px; }
 
   /* 하단 문구/연도: 갤러리 페이지에서는 사진을 가리므로 숨김 */
   #page-waypoints .tagline, #page-waypoints .year-stamp,
